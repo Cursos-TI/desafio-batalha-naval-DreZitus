@@ -7,14 +7,27 @@
 int main() {
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    int linhaY[10] = {1};
-    int linhaX[10] = {0}; // Inicializa o array com zeros
-    printf("TABULEIRO BATALHA NAVAL\n");
-    printf("A B C D E F G H I J\n");
-
-    for(int i = 0, j = 0; i < 10 && j < 10; i++, j++){
-        printf("%d\n", linhaY[j]);
+    int tabuleiro[5][5] = {
+        
     };
+    
+    printf("TABULEIRO BATALHA NAVAL\n");
+    printf("\n");
+
+    
+    for(char letra = 'A'; letra <= 'J'; letra++){ //loop demarcando a posição X de A a J
+        printf("%c ", letra);
+    }
+    printf("\n");
+
+    for(int i = 1; i < 10; i++){ // loop aninhado externo que conta de 1 a 9 pra marcar a posição Y
+        printf("%d ", i);
+        for (int j = 1; j < 10; j++) // Loop interno para representar a Agua com 0 
+        {
+            printf("0 ");
+        }
+        printf("\n");
+    }
 
 
     
