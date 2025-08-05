@@ -7,10 +7,13 @@
 int main() {
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
+    int linhaY;
+    int linhaX[10] = {0}; // Inicializa o array com zeros
+    printf("*TABULEIRO BATALHA NAVAL*\n");
+    printf("A B C D E F G H I J\n");
 
-    printf("***TABULEIRO BATALHA NAVAL***");
     for(int i = 0; i < 10; i++){
-        prinf("A");
+        printf("%d ", linhaX[i]);
     };
 
 
