@@ -7,29 +7,27 @@
 int main() {
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    int tabuleiro[5][5] = {
-        
+    
+    char linhaX[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+
+    char tabuleiro[10][10] = {
+        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+        {'0', '0', '0', '3', '3', '3', '0', '0', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '0', '3', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '0', '3', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '0', '3', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'}
     };
     
     printf("TABULEIRO BATALHA NAVAL\n");
     printf("\n");
-
     
-    for(char letra = 'A'; letra <= 'J'; letra++){ //loop demarcando a posição X de A a J
-        printf("%c ", letra);
-    }
-    printf("\n");
 
-    for(int i = 1; i < 10; i++){ // loop aninhado externo que conta de 1 a 9 pra marcar a posição Y
-        printf("%d ", i);
-        for (int j = 1; j < 10; j++) // Loop interno para representar a Agua com 0 
-        {
-            printf("0 ");
-        }
-        printf("\n");
-    }
-
-
+    printf("%c", tabuleiro[0][3]);
     
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
     // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
