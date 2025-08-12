@@ -1,58 +1,63 @@
 #include <stdio.h>
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
+// Definições de tamanho do tabuleiro
+#define LINHAS 10
+#define COLUNAS 10
 
-#define LINHA 10
-#define COLUNA 10
-
-int tabuleiro[LINHA] [COLUNA];
-
- 
+// Matriz do tabuleiro
+int tabuleiro[LINHAS][COLUNAS];
 
 int main() {
-    
-    for (int i = 0; i < LINHA; i++)
-    {
-        for (int j = 0; j < COLUNA; j++)
-        {
-            tabuleiro[i][j] = 0; // 0 representa agua
+    // 1. Inicializa o tabuleiro com "água" (0)
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            tabuleiro[i][j] = 0;
         }
-        
     }
-    
-    printf("TABULEIRO BATALHA NAVAL\n");
+
+    // 2. Posiciona navio horizontal de tamanho 3 (valor 3 no tabuleiro)
+    int linha_navio_h = 2;          // Linha 3 (índice 2)
+    int col_inicio_navio_h = 3;     // Coluna D (índice 3)
+    for (int k = 0; k < 3; k++) {
+        tabuleiro[linha_navio_h][col_inicio_navio_h + k] = 3;
+    }
+
+    // 3. Posiciona navio vertical de tamanho 3 (valor 3 no tabuleiro)
+    int linha_inicio_navio_v = 4;   // Linha 5 (índice 4)
+    int col_navio_v = 1;            // Coluna B (índice 1)
+    for (int k = 0; k < 3; k++) {
+        tabuleiro[linha_inicio_navio_v + k][col_navio_v] = 3;
+    }
+
+    // 3.a Navio diagonal principal (tamanho 3): (i+k, j+k)
+    int linhaDiagonal1 = 0;  // linha inicial
+    int colunaDiagonal1 = 0;  // coluna inicial
+    for (int k = 0; k < 3; k++) {
+        tabuleiro[linhaDiagonal1 + k][colunaDiagonal1 + k] = 3; // (0,0),(1,1),(2,2)
+    }
+
+    // 3.b Navio diagonal secundária (tamanho 3): (i+k, j-k)
+    int linhaDiagonal2 = 0;  // linha inicial
+    int colunaDiagonal2 = 9;  // coluna inicial (extremo direito)
+    for (int k = 0; k < 3; k++) {
+        tabuleiro[linhaDiagonal2 + k][colunaDiagonal2 - k] = 3; // (0,9),(1,8),(2,7)
+    }
+
+    // 4. Imprime cabeçalho das colunas
+    printf("   ");
+    for (char letra = 'A'; letra < 'A' + COLUNAS; letra++) {
+        printf("%c ", letra);
+    }
     printf("\n");
-    
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
 
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
-
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
-    
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
-
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
+    // 5. Imprime o tabuleiro
+    for (int i = 0; i < LINHAS; i++) {
+        printf("%2d ", i + 1);
+        for (int j = 0; j < COLUNAS; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }
