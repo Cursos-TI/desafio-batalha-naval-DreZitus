@@ -18,29 +18,29 @@ int main() {
     // 2. Posiciona navio horizontal de tamanho 3 (valor 3 no tabuleiro)
     int linha_navio_h = 2;          // Linha 3 (índice 2)
     int col_inicio_navio_h = 3;     // Coluna D (índice 3)
-    for (int k = 0; k < 3; k++) {
-        tabuleiro[linha_navio_h][col_inicio_navio_h + k] = 3;
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[linha_navio_h][col_inicio_navio_h + i] = 3;
     }
 
     // 3. Posiciona navio vertical de tamanho 3 (valor 3 no tabuleiro)
     int linha_inicio_navio_v = 4;   // Linha 5 (índice 4)
     int col_navio_v = 1;            // Coluna B (índice 1)
-    for (int k = 0; k < 3; k++) {
-        tabuleiro[linha_inicio_navio_v + k][col_navio_v] = 3;
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[linha_inicio_navio_v + i][col_navio_v] = 3;
     }
 
     // 3.a Navio diagonal principal (tamanho 3): (i+k, j+k)
     int linhaDiagonal1 = 0;  // linha inicial
     int colunaDiagonal1 = 0;  // coluna inicial
-    for (int k = 0; k < 3; k++) {
-        tabuleiro[linhaDiagonal1 + k][colunaDiagonal1 + k] = 3; // (0,0),(1,1),(2,2)
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[linhaDiagonal1 + i][colunaDiagonal1 + i] = 3; // (0,0),(1,1),(2,2)
     }
 
     // 3.b Navio diagonal secundária (tamanho 3): (i+k, j-k)
     int linhaDiagonal2 = 0;  // linha inicial
     int colunaDiagonal2 = 9;  // coluna inicial (extremo direito)
-    for (int k = 0; k < 3; k++) {
-        tabuleiro[linhaDiagonal2 + k][colunaDiagonal2 - k] = 3; // (0,9),(1,8),(2,7)
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[linhaDiagonal2 + i][colunaDiagonal2 - i] = 3; // (0,9),(1,8),(2,7)
     }
 
     // 4. Imprime cabeçalho das colunas
